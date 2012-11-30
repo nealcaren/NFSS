@@ -187,6 +187,7 @@ foreach outcome of varlist `binary'  {
 	
 *output the results	
 esttab `b_est' using "baseline_logit.rtf", replace rtf ar2 label ///
+	   title("Draft of replication of Regnerus 2012 models") ///
 	   refcat(ff_lm "Family form (IBF excluded)" ///
 	   		  race_black_nonhisp  "Race (White excluded)" ///
 	          age_24_32 "Age (18-23 excluded)" ///
@@ -194,6 +195,7 @@ esttab `b_est' using "baseline_logit.rtf", replace rtf ar2 label ///
 	          ma_educ_nohs "Mother education (HS excluded)" ,nolabel  )
 
 esttab `w_est' using "welfare_logit.rtf", replace rtf ar2 label ///
+	   title("Draft of replication of Regnerus 2012 models with additional income control") ///
 	   refcat(ff_lm "Family form (IBF excluded)" ///
 	   		  race_black_nonhisp  "Race (White excluded)" ///
 	          age_24_32 "Age (18-23 excluded)" ///
@@ -226,6 +228,7 @@ foreach outcome of varlist `continuous'  {
 *output the results	
 *if this doesn't work, try "ssc install esttab"
 esttab `b_est' using "baseline_reg.rtf", replace rtf ar2 label ///
+	   title("Draft of replication of Regnerus 2012 models") ///
 	   refcat(ff_lm "Family form (IBF excluded)" ///
 	   		  race_black_nonhisp  "Race (White excluded)" ///
 	          age_24_32 "Age (18-23 excluded)" ///
@@ -233,6 +236,7 @@ esttab `b_est' using "baseline_reg.rtf", replace rtf ar2 label ///
 	          ma_educ_nohs "Mother education (HS excluded)" ,nolabel  )
 
 esttab `w_est' using "welfare_reg.rtf", replace rtf ar2 label ///
+	   title("Draft of replication of Regnerus 2012 models with additional income control") ///
 	   refcat(ff_lm "Family form (IBF excluded)" ///
 	   		  race_black_nonhisp  "Race (White excluded)" ///
 	          age_24_32 "Age (18-23 excluded)" ///
@@ -240,7 +244,4 @@ esttab `w_est' using "welfare_reg.rtf", replace rtf ar2 label ///
 	          ma_educ_nohs "Mother education (HS excluded)" ,nolabel  )
 	          
 
-*Special cases
-recode Q6 (2=1) (1=0) (-1=0) (3=0), gen(in_school)
-reg education `explanatory_variables'  kid_welfare*  if PPAGE>25        
 
