@@ -3,7 +3,7 @@
 * 11/30/2012
 * Script for analyzing "New Family Structures Study (ICPSR 34392)"
 * Data available: http://www.icpsr.umich.edu/icpsrweb/ICPSR/studies/34392?
-* Article availabe: http://www.sciencedirect.com/science/article/pii/S0049089X12000610
+* Article available: http://www.sciencedirect.com/science/article/pii/S0049089X12000610
 
 
 
@@ -20,7 +20,7 @@ svyset [pw=WEIGHT4]
 *recode the main variable of interest
 *** I can't figure out how stepfamily was coded. My numbers don't match his, so I lump
 *** all the stepkids/single-mom kids/other kids into one group.
-*** Since the comparison is to IBF, this doesn't matter for estimating the lf and gd coefficients/signifigance.
+*** Since the comparison is to IBF, this doesn't matter for estimating the lf and gd coefficients/significance.
 *** But, in the interest of completeness, it would be good to have these categories constructed
 *** note that this is based on the first Regnerus family form variables, not the revised version.
 
