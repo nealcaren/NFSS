@@ -3,7 +3,7 @@ NFSS
 
 This project attempts to reproduce the analysis reported in:
 
-Mark Regnerus, How different are the adult children of parents who have same-sex relationships? Findings from the New Family Structures Study, Social Science Research, Volume 41, Issue 4, July 2012, Pages 752-770, ISSN 0049-089X, 10.1016/j.ssresearch.2012.03.009.
+> Mark Regnerus, How different are the adult children of parents who have same-sex relationships? Findings from the New Family Structures Study, Social Science Research, Volume 41, Issue 4, July 2012, Pages 752-770, ISSN 0049-089X, 10.1016/j.ssresearch.2012.03.009.
 http://www.sciencedirect.com/science/article/pii/S0049089X12000610
 
 The data was made available by the PI through ICPSR:
