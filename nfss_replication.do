@@ -172,13 +172,7 @@ foreach outcome of varlist `binary'  {
 	*Store the output for later display
 	eststo b_`outcome'
 	local b_est "`b_est' b_`outcome'"
-	
-	*Regnerus model minus state controls plus child welfare experience
-	svy: logit `outcome' `explanatory_variables'  kid_welfare* , asis
-	
-	*Store the output for later display
-	eststo w_`outcome' 
-	local w_est "`w_est' w_`outcome'"
+
 	      
 	}
 
@@ -193,15 +187,7 @@ esttab `b_est' using "baseline_logit.rtf", replace rtf ar2 label ///
 	          age_24_32 "Age (18-23 excluded)" ///
 	          foi_income_0 "FOI income (40-75K excluded)" ///
 	          ma_educ_nohs "Mother education (HS excluded)" ,nolabel  )
-
-esttab `w_est' using "welfare_logit.rtf", replace rtf ar2 label ///
-	   title("Draft of replication of Regnerus 2012 models with additional income control") ///
-	   refcat(ff_lm "Family form (IBF excluded)" ///
-	   		  race_black_nonhisp  "Race (White excluded)" ///
-	          age_24_32 "Age (18-23 excluded)" ///
-	          foi_income_0 "FOI income (40-75K excluded)" ///
-	          ma_educ_nohs "Mother education (HS excluded)" ,nolabel  )
-	          
+          
 	          
 estimates clear  
 local b_est ""
@@ -215,12 +201,6 @@ foreach outcome of varlist `continuous'  {
 	eststo b_`outcome'
 	local b_est "`b_est' b_`outcome'"
 	
-	*Regnerus model minus state controls plus child welfare experience
-	svy: reg `outcome' `explanatory_variables'  kid_welfare* ,
-	
-	*Store the output for later display
-	eststo w_`outcome' 
-	local w_est "`w_est' w_`outcome'"
 	      
 	}
 
@@ -235,13 +215,6 @@ esttab `b_est' using "baseline_reg.rtf", replace rtf ar2 label ///
 	          foi_income_0 "FOI income (40-75K excluded)" ///
 	          ma_educ_nohs "Mother education (HS excluded)" ,nolabel  )
 
-esttab `w_est' using "welfare_reg.rtf", replace rtf ar2 label ///
-	   title("Draft of replication of Regnerus 2012 models with additional income control") ///
-	   refcat(ff_lm "Family form (IBF excluded)" ///
-	   		  race_black_nonhisp  "Race (White excluded)" ///
-	          age_24_32 "Age (18-23 excluded)" ///
-	          foi_income_0 "FOI income (40-75K excluded)" ///
-	          ma_educ_nohs "Mother education (HS excluded)" ,nolabel  )
 	          
 
 
