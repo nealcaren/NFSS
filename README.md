@@ -7,12 +7,10 @@ The data was made available by the PI through ICPSR: http://www.icpsr.umich.edu/
 
 The code is in Stata because that is the software program I know best for data management and analysis. This should work with all versions of Stata, but does use the esttab command to produce the final tables. You can install that by typing, "ssc install esttab" in Stata.
 
-In this alpha version of the project, this code constructs most of the independent variables Regnerus used as well as some of the dependent variables, and then performs some regressions. My goal is for the code to run all of the regressions reported in the original paper. It would great if the code could completely reproduce the original analysis so that more scholars could contribute to this conversation without having to do all the data management work. You can contribute to the code either through the standard Github mechanism or by sending me an email (neal.caren@gmail.com).
+In this beta version of the project, this code constructs all of the explanatory and outcome variables and analyzes the data, as per the original article, with a few caveats:
 
-As of 11/30:
-
-* I haven't quite figured out yet how stepfamily and single parent are operationalized, so I lump them with other family forms. I have figured out, "intact biological family", "gay father", "lesbian mother", "adopted before two" and "divorced late" so the models can estimate comparisons between those groups. That is, you can test whether or not the gf/lm coefficients are significantly different from the ibf coefficient.
+* I haven't quite figured out yet how stepfamily and single parent are operationalized. I have measures, but the counts are not the same as reported in the article.  In contrast, "intact biological family", "gay father", "lesbian mother", "adopted before two" and "divorced late" all have counts that match the article, so the models can estimate comparisons between those groups. That is, you can test whether or not the gf/lm coefficients are significantly different from the ibf coefficient.
 *	With one exception, all of the control variables have been constructed. Since the data includes region but no state identifier, the state LGBT friendliness variables can't be reconstructed.
-* I've recoded some of the binary outcome measures, one of the continuous measures, and none of the count outcomes. I focused on the ones where there were significant differences reported between lm/gf and ibf families.
+*  As noted in the do file, a few of the outcome variables have slightly different means and counts then reported in the article. If someone could provide some code to replicate those outcomes exactly, that would be great.
 
 
