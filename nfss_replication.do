@@ -74,13 +74,23 @@ foreach var of varlist ff_lm ff_gd ff_adopt_under2 ff_ibf ff_divlate ff_step ff_
 	replace ff_other=0 if `var'==1
 	}
 
+gen ff_lm_live=0
+forvalues i=1/18 {
+	replace ff_lm_live = 1 if S8==1 &  (MOTHERGFPART_`i'==1 | MOTHERGFPART_A==1 )& (BIOMOTHER_A==1 | BIOMOTHER_`i'==1)
+	}
+
+gen ff_gd_live=0
+forvalues i=1/18 {
+	replace ff_gd_live = 1 if S9==1 & (FATHERBFPART_`i'==1 | FATHERBFPART_A==1 )& (BIOFATHER_A==1 | BIOFATHER_`i'==1)
+	}
+
 label var ff_ibf "Intact bio family"
 label var ff_lm "Lesbian mother"
-label var ff_gd "Gay dad"
+label var ff_gd "Gay father"
 label var ff_adopt_under2 "Adopted by strangers"
 label var ff_divlate "Divorced late"
 label var ff_other "Other"
-label var ff_step "Step mom/dad"
+label var ff_step "Step parent"
 label var ff_single "Single Parent"
 
 
@@ -333,7 +343,7 @@ local continuous education foo_safety  foo_negative mom_close dad_close physical
 local count use_marijuana  use_alcohol drink_drunk smoke  watch_tv arrested guilty women_partners_of_women women_partners_of_men men_partners_of_women men_partners_of_men
 
 * Macros to store explanatory variables
-local ffs "ff_l ff_gd ff_adopt_under2 ff_divlate ff_step ff_single  ff_other"
+local ffs "ff_lm ff_gd ff_adopt_under2 ff_divlate ff_step ff_single  ff_other"
 local explanatory_variables `ffs'  race_*  age female ma_educ* foo_income_* kid_bullied
 
 *output summary stats
